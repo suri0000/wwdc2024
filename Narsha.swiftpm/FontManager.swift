@@ -11,6 +11,8 @@ public struct FontManager {
     
     public static func registerFonts() {
         registerFont(bundle: Bundle.main, fontName: "KoddiUDOnGothic-Regular", fontExtension: ".otf") //change according to your ext.
+      
+        registerFont(bundle: Bundle.main, fontName: "KoddiUDOnGothic-Bold", fontExtension: ".otf")
     }
     
     fileprivate static func registerFont(bundle: Bundle, fontName: String, fontExtension: String) {
