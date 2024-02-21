@@ -9,16 +9,18 @@ import SwiftUI
 
 struct MainView: View {
   var body: some View {
-    ZStack {
-      Color(hex: 0xE4DFFF).ignoresSafeArea()
-      VStack {
-        Text("Narsha")
-          .font(.custom("KoddiUDOnGothic-Bold", size: 36))
-        
-        MainButton(buttonName: "Instruction")
-          .padding(EdgeInsets(top: 113, leading: 0, bottom: 67, trailing: 0))
-        
-        MainButton(buttonName: "Learn icons")
+    NavigationStack {
+      ZStack {
+        Color(hex: 0xE4DFFF).ignoresSafeArea()
+        VStack {
+          Text("Narsha")
+            .font(.custom("KoddiUDOnGothic-Bold", size: 36))
+          
+          MainButton(buttonName: "Instruction")
+            .padding(EdgeInsets(top: 113, leading: 0, bottom: 67, trailing: 0))
+          
+          MainButton(buttonName: "Learn icons")
+        }
       }
     }
   }
@@ -29,9 +31,11 @@ struct MainButton: View {
   var buttonName: String
   
   var body: some View {
-    Button(action: {
-      
-    }, label: {
+    NavigationLink {
+      if buttonName == "Instruction" {
+        InstructionView()
+      }
+    } label: {
       ZStack {
         Rectangle()
           .frame(width: UIWidth * 0.5, height: UIHeight * 0.09)
@@ -41,7 +45,7 @@ struct MainButton: View {
           .font(.custom("KoddiUDOnGothic-Bold", size: 20))
           .foregroundStyle(.black)
       }
-    })
+    }
   }
 }
 
