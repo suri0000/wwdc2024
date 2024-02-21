@@ -9,7 +9,9 @@ import SwiftUI
 
 struct InstructionView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+      ZStack {
+        Color(hex: 0xE4DFFF)
+      }
     }
 }
 
