@@ -34,6 +34,8 @@ struct MainButton: View {
     NavigationLink {
       if buttonName == "Instruction" {
         InstructionView()
+      } else {
+        LearnIconsView()
       }
     } label: {
       ZStack {
