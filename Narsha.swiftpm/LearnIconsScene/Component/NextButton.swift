@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct NextButton: View {
+struct GoToIconDescriptionButton: View {
     var body: some View {
       NavigationLink {
-        
+        IconDescriptionView()
       } label: {
         HStack {
           Text("NEXT")
@@ -27,6 +27,8 @@ struct NextButton: View {
     }
 }
 
+
+
 #Preview {
-    NextButton()
+    GoToIconDescriptionButton()
 }

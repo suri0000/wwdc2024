@@ -37,7 +37,7 @@ struct ShareIconView: View {
             .gesture(drag)
         }
         if draggedOffset.height < -50 {
-          NextButton()
+          GoToIconDescriptionButton()
         }
       }
     }

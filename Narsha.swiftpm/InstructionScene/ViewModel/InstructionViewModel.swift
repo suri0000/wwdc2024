@@ -24,9 +24,3 @@ If you have any questions, please click once! It doesn't break down. It's free t
                             
 "If you don't use it, you forget it. Keep learning and using it over and over again."]
 }
-
-//enum ButtonType: String {
-//  case next = "NEXT"
-//  case back = "BACK"
-//  case start = "START"
-//}

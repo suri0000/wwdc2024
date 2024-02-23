@@ -39,13 +39,13 @@ struct InstructionView: View {
               
               HStack {
                 if pageNumber == 0 {
-                  PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
+                  InstructionPageButton(pageNumber: $pageNumber, buttonName: "NEXT")
                 } else if pageNumber == 3 {
-                  PageButton(pageNumber: $pageNumber, buttonName: "BACK")
+                  InstructionPageButton(pageNumber: $pageNumber, buttonName: "BACK")
                   startButton
                 } else {
-                  PageButton(pageNumber: $pageNumber, buttonName: "BACK")
-                  PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
+                  InstructionPageButton(pageNumber: $pageNumber, buttonName: "BACK")
+                  InstructionPageButton(pageNumber: $pageNumber, buttonName: "NEXT")
                 }
               }
               .padding(.bottom, 30)
@@ -74,7 +74,7 @@ struct InstructionView: View {
   }
 }
 
-struct PageButton: View {
+struct InstructionPageButton: View {
   
   @Binding var pageNumber: Int
   @State var buttonName: String
