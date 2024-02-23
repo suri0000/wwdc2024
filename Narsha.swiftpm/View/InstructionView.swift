@@ -37,6 +37,9 @@ struct InstructionView: View {
               HStack {
                 if pageNumber == 0 {
                   PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
+                } else if pageNumber == 3 {
+                  PageButton(pageNumber: $pageNumber, buttonName: "BACK")
+                  startButton
                 } else {
                   PageButton(pageNumber: $pageNumber, buttonName: "BACK")
                   PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
@@ -46,6 +49,23 @@ struct InstructionView: View {
             }
           }
       }
+    }
+  }
+  
+  private var startButton: some View {
+    NavigationLink {
+      LearnIconsView()
+    } label: {
+      HStack {
+        Text("START")
+          .font(.custom("KoddiUDOnGothic-Bold", size: 20))
+        
+        Image(systemName: "chevron.right")
+      }
+      .padding(EdgeInsets(top: 6, leading: 15, bottom: 6, trailing: 15))
+      .background(Color(hex: 0xFFF6C7))
+      .cornerRadius(5)
+      .foregroundColor(.black)
     }
   }
 }
@@ -82,29 +102,6 @@ struct PageButton: View {
       .foregroundColor(.black)
       .padding(.trailing, buttonName == "BACK" ? 48 : 0)
     }
-  }
-}
-
-struct StartButton: View {
-  
-  @State var buttonName: String
-  
-  var body: some View {
-    NavigationLink {
-      LearnIconsView()
-    } label: {
-      HStack {
-        Text(buttonName)
-          .font(.custom("KoddiUDOnGothic-Bold", size: 20))
-        
-        Image(systemName: "chevron.right")
-      }
-      .padding(EdgeInsets(top: 6, leading: 15, bottom: 6, trailing: 15))
-      .background(Color(hex: 0xFFF6C7))
-      .cornerRadius(5)
-      .foregroundColor(.black)
-    }
-
   }
 }
 
