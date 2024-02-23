@@ -13,37 +13,39 @@ struct InstructionView: View {
   @State var pageNumber: Int = 0
   
   var body: some View {
-    ZStack {
-      Color(hex: 0xE4DFFF).ignoresSafeArea()
-      Rectangle()
-        .frame(width: UIWidth * 0.85, height: UIHeight * 0.6)
-        .foregroundColor(.white)
-        .cornerRadius(10)
-        .overlay {
-          VStack {
-            VStack(alignment: .leading) {
-              Text(vm.titleText[pageNumber])
-                .font(.custom("KoddiUDOnGothic-Bold", size: 24))
-                .padding(EdgeInsets(top: 44, leading: 0, bottom: 20, trailing: 0))
-              
-              Text(vm.bodyText[pageNumber])
-                .font(.custom("KoddiUDOnGothic-Regular", size: 20))
-                .frame(maxHeight: 280, alignment: .top)
-                .minimumScaleFactor(0.9)
-            }
-            .padding(.horizontal, 30)
-            
-            HStack {
-              if pageNumber == 0 {
-                PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
-              } else {
-                PageButton(pageNumber: $pageNumber, buttonName: "BACK")
-                PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
+    NavigationStack {
+      ZStack {
+        Color(hex: 0xE4DFFF).ignoresSafeArea()
+        Rectangle()
+          .frame(width: UIWidth * 0.85, height: UIHeight * 0.6)
+          .foregroundColor(.white)
+          .cornerRadius(10)
+          .overlay {
+            VStack {
+              VStack(alignment: .leading) {
+                Text(vm.titleText[pageNumber])
+                  .font(.custom("KoddiUDOnGothic-Bold", size: 24))
+                  .padding(EdgeInsets(top: 44, leading: 0, bottom: 20, trailing: 0))
+                
+                Text(vm.bodyText[pageNumber])
+                  .font(.custom("KoddiUDOnGothic-Regular", size: 20))
+                  .frame(maxHeight: 280, alignment: .top)
+                  .minimumScaleFactor(0.9)
               }
+              .padding(.horizontal, 30)
+              
+              HStack {
+                if pageNumber == 0 {
+                  PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
+                } else {
+                  PageButton(pageNumber: $pageNumber, buttonName: "BACK")
+                  PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
+                }
+              }
+              .padding(EdgeInsets(top: 50, leading: 0, bottom: 26, trailing: 0))
             }
-            .padding(EdgeInsets(top: 50, leading: 0, bottom: 26, trailing: 0))
           }
-        }
+      }
     }
   }
 }
@@ -68,7 +70,7 @@ struct PageButton: View {
           Text(buttonName)
             .font(.custom("KoddiUDOnGothic-Bold", size: 20))
         } else {
-          Text(pageNumber == 3 ? "START" : "NEXT")
+          Text(buttonName)
             .font(.custom("KoddiUDOnGothic-Bold", size: 20))
           
           Image(systemName: "chevron.right")
@@ -78,7 +80,31 @@ struct PageButton: View {
       .background(Color(hex: 0xFFF6C7))
       .cornerRadius(5)
       .foregroundColor(.black)
+      .padding(.trailing, buttonName == "BACK" ? 48 : 0)
     }
+  }
+}
+
+struct StartButton: View {
+  
+  @State var buttonName: String
+  
+  var body: some View {
+    NavigationLink {
+      LearnIconsView()
+    } label: {
+      HStack {
+        Text(buttonName)
+          .font(.custom("KoddiUDOnGothic-Bold", size: 20))
+        
+        Image(systemName: "chevron.right")
+      }
+      .padding(EdgeInsets(top: 6, leading: 15, bottom: 6, trailing: 15))
+      .background(Color(hex: 0xFFF6C7))
+      .cornerRadius(5)
+      .foregroundColor(.black)
+    }
+
   }
 }
 
