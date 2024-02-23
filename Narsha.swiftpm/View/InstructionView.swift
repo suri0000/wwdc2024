@@ -54,7 +54,7 @@ struct InstructionView: View {
   
   private var startButton: some View {
     NavigationLink {
-      LearnIconsView()
+      ShareIconView()
     } label: {
       HStack {
         Text("START")
