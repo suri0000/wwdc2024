@@ -25,14 +25,17 @@ struct InstructionView: View {
               VStack(alignment: .leading) {
                 Text(vm.titleText[pageNumber])
                   .font(.custom("KoddiUDOnGothic-Bold", size: 24))
-                  .padding(EdgeInsets(top: 44, leading: 0, bottom: 20, trailing: 0))
+                  .minimumScaleFactor(0.9)
+                  .padding(.bottom, 25)
+                  .padding(.top, 44)
                 
                 Text(vm.bodyText[pageNumber])
                   .font(.custom("KoddiUDOnGothic-Regular", size: 20))
-                  .frame(maxHeight: 280, alignment: .top)
-                  .minimumScaleFactor(0.9)
+                  .minimumScaleFactor(0.8)
               }
               .padding(.horizontal, 30)
+              
+              Spacer()
               
               HStack {
                 if pageNumber == 0 {
@@ -45,9 +48,10 @@ struct InstructionView: View {
                   PageButton(pageNumber: $pageNumber, buttonName: "NEXT")
                 }
               }
-              .padding(EdgeInsets(top: 50, leading: 0, bottom: 26, trailing: 0))
+              .padding(.bottom, 30)
             }
           }
+          .padding(.horizontal, 30)
       }
     }
   }
