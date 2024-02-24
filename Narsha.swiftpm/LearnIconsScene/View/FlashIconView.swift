@@ -43,8 +43,8 @@ struct FlashIconView: View {
             IconDescriptionView(iconName: Description.flash.rawValue, destination: BookmarkView())
           } label: {
             NextButton()
-              .padding(.top, 45)
           }
+          .padding(.top, 45)
         } else {
           Rectangle()
             .frame(width: 111, height: 39)
