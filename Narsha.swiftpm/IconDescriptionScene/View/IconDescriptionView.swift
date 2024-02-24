@@ -11,7 +11,6 @@ struct IconDescriptionView<Destination:View>: View {
   
   @ObservedObject var vm = IconDescriptionViewModel()
   var iconName: String
-  //  var description: Description
   var destination: Destination
   
   var body: some View {
@@ -49,5 +48,5 @@ struct IconDescriptionView<Destination:View>: View {
 }
 
 #Preview {
-  IconDescriptionView(iconName: "", destination: FlashIconView())
+  IconDescriptionView(iconName: "", destination: ShareIconView())
 }

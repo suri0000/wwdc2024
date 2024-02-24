@@ -10,11 +10,12 @@ import SwiftUI
 struct FlashIconView: View {
   
   @State var flashSwitch: Bool = false
+  @State var toggleClick = 0
   
   var body: some View {
     NavigationStack {
       VStack {
-        Directive(directive: "Use the toggle to turn the flashlight on and off.")
+        Directive(directive: "Use the toggle to turn the flashlight on and off. Be sure to turn off the flash before pressing the next button.")
         
         Image(systemName: flashSwitch ? "flashlight.on.fill" : "flashlight.off.fill")
           .resizable()
@@ -30,25 +31,25 @@ struct FlashIconView: View {
           Button {
             flashSwitch.toggle()
             toggleTorch(on: flashSwitch)
+            toggleClick += 1
           } label: {
             Rectangle()
               .foregroundColor(.clear)
           }
         }
         
-        if flashSwitch {
+        if flashSwitch || toggleClick >= 1 {
           NavigationLink {
             IconDescriptionView(iconName: Description.flash.rawValue, destination: ShareIconView())
           } label: {
             NextButton()
-              .padding(.top, 50)
+              .padding(.top, 45)
           }
         } else {
           Rectangle()
-            .frame(width: UIWidth * 0.3, height: UIHeight * 0.043)
+            .frame(width: 111, height: 39)
             .foregroundColor(.clear)
             .padding(.vertical, 50)
-            
         }
       }
     }
