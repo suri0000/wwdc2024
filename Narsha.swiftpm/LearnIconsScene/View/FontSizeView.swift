@@ -27,7 +27,7 @@ struct FontSizeView: View {
           
           if imageSizeMultiplier > 3 {
             NavigationLink {
-              
+              ScreenLockView()
             } label: {
               NextButton()
                 .border(Color.black)
