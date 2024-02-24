@@ -9,8 +9,8 @@ import SwiftUI
 
 struct BookmarkView: View {
   
-  @State var isCorrect: Bool = true
-  @State var onNextButton: Bool = false
+  @State private var isCorrect: Bool = true
+  @State private var onNextButton: Bool = false
   
     var body: some View {
       NavigationStack {
