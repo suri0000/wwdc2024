@@ -14,7 +14,8 @@ struct Directive: View {
   var body: some View {
     Text(directive)
       .font(.custom("KoddiUDOnGothic-Regular", size: 24))
-      .minimumScaleFactor(0.5)
-      .padding(.top, 60)
+      .frame(width: UIWidth * 0.8)
+      .minimumScaleFactor(0.3)
+      .padding(.top, 20)
   }
 }

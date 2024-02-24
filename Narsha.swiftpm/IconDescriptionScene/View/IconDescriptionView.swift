@@ -31,7 +31,8 @@ struct IconDescriptionView<Destination:View>: View {
                 Text(iconName)
                   .font(.custom("KoddiUDOnGothic-Regular", size: 20))
                   .frame(maxHeight: 280, alignment: .top)
-                  .minimumScaleFactor(0.9)
+                  .minimumScaleFactor(0.5)
+                  .padding(.bottom, 30)
               }
               .padding(.horizontal, 30)
               
