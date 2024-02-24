@@ -11,7 +11,6 @@ struct IconDescriptionView<Destination:View>: View {
   
   @ObservedObject var vm = IconDescriptionViewModel()
   var iconName: String
-  //  var description: Description
   var destination: Destination
   
   var body: some View {
@@ -32,7 +31,8 @@ struct IconDescriptionView<Destination:View>: View {
                 Text(iconName)
                   .font(.custom("KoddiUDOnGothic-Regular", size: 20))
                   .frame(maxHeight: 280, alignment: .top)
-                  .minimumScaleFactor(0.9)
+                  .minimumScaleFactor(0.5)
+                  .padding(.bottom, 30)
               }
               .padding(.horizontal, 30)
               
@@ -49,5 +49,5 @@ struct IconDescriptionView<Destination:View>: View {
 }
 
 #Preview {
-  IconDescriptionView(iconName: "", destination: FlashIconView())
+  IconDescriptionView(iconName: "", destination: ShareIconView())
 }
