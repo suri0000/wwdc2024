@@ -19,7 +19,6 @@ struct NextButton: View {
       .background(Color(hex: 0xFFF6C7))
       .cornerRadius(5)
       .foregroundColor(.black)
-      .padding(.bottom, 30)
   }
 }
 
