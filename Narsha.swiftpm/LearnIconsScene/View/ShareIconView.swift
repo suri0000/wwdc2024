@@ -36,8 +36,13 @@ struct ShareIconView: View {
             .offset(draggedOffset)
             .gesture(drag)
         }
+        
         if draggedOffset.height < -50 {
-          NextButton()
+          NavigationLink {
+            IconDescriptionView(iconName: Description.share.rawValue, destination: FlashIconView())
+          } label: {
+            NextButton()
+          }
         }
       }
     }
