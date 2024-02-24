@@ -7,9 +7,12 @@
 
 import SwiftUI
 
-struct IconDescriptionView: View {
+struct IconDescriptionView<Destination:View>: View {
   
   @ObservedObject var vm = IconDescriptionViewModel()
+  var iconName: String
+  //  var description: Description
+  var destination: Destination
   
   var body: some View {
     NavigationStack {
@@ -26,12 +29,18 @@ struct IconDescriptionView: View {
                   .font(.custom("KoddiUDOnGothic-Bold", size: 24))
                   .padding(EdgeInsets(top: 44, leading: 0, bottom: 20, trailing: 0))
                 
-                Text(Description.share.rawValue)
+                Text(iconName)
                   .font(.custom("KoddiUDOnGothic-Regular", size: 20))
                   .frame(maxHeight: 280, alignment: .top)
                   .minimumScaleFactor(0.9)
               }
               .padding(.horizontal, 30)
+              
+              NavigationLink {
+                destination
+              } label: {
+                NextButton()
+              }
             }
           }
       }
@@ -39,26 +48,6 @@ struct IconDescriptionView: View {
   }
 }
 
-struct GotoLearnIconButton: View {
-    var body: some View {
-      NavigationLink {
-        IconDescriptionView()
-      } label: {
-        HStack {
-          Text("NEXT")
-            .font(.custom("KoddiUDOnGothic-Bold", size: 20))
-          
-          Image(systemName: "chevron.right")
-        }
-        .padding(EdgeInsets(top: 6, leading: 15, bottom: 6, trailing: 15))
-        .background(Color(hex: 0xFFF6C7))
-        .cornerRadius(5)
-        .foregroundColor(.black)
-        .padding(.bottom, 50)
-      }
-    }
-}
-
 #Preview {
-  IconDescriptionView()
+  IconDescriptionView(iconName: "", destination: FlashIconView())
 }
