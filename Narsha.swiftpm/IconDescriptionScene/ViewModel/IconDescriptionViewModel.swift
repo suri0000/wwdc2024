@@ -13,7 +13,7 @@ class IconDescriptionViewModel: ObservableObject {
 
 enum Description: String {
   case share = "The meaning of this icon is to export and share something, like exporting a square to the outside. You can check various activities in addition to sharing by clicking the icon."
-  case flash = "Did you see the icon change? This icon represents a flashlight."
+  case flash = "Have you confirmed that the flashlight turns on? Click this icon to turn the flashlight on or off."
   case bookmark
   case mirroring = "Each of the squares collected earlier represents a window (screen). So this icon represents a window. Used to view tabs in Safari. It is also used as a screen mirroring icon. Screen mirroring means showing the screen on another device as if you had moved the same squares from before."
   case magnifyingGlass = "You used a magnifying glass to find an apple. This icon means find or search. It also has the meaning of expansion. A magnifying glass originally has the function of making small things appear larger."
