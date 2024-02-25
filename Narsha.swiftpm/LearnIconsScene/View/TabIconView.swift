@@ -19,7 +19,7 @@ struct TabIconView: View {
   var body: some View {
     NavigationStack {
         VStack {
-          Directive(directive: "Gather the purple squares to where the gray squares are.")
+          Directive(directive: "Gather the purple squares to where the gray squares are")
           
           HStack {
             Rectangle()
@@ -95,9 +95,10 @@ struct TabIconView: View {
           
           if isNextButtonVisible1 && isNextButtonVisible2 && isNextButtonVisible3 {
             NavigationLink {
-              IconDescriptionView(iconName: Description.tab.rawValue, destination: FontSizeView())
+              IconDescriptionView(iconName: Description.tab.rawValue, destination: EndView())
             } label: {
               NextButton()
+                .padding(.top, 30)
             }
           }
         }
