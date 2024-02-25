@@ -45,7 +45,7 @@ struct ScreenLockView: View {
         
         if motionManager.roll >= 0 || buttonVisible {
           NavigationLink {
-            IconDescriptionView(iconName: Description.screenLock.rawValue, destination: HistoryView())
+            IconDescriptionView(praises: "Excellent!", iconName: Description.screenLock.rawValue, destination: HistoryView())
           } label: {
             NextButton()
           }
@@ -53,6 +53,9 @@ struct ScreenLockView: View {
             if newValue >= 0 {
               buttonVisible = true
             }
+          }
+          .onTapGesture {
+            motionManager.stopUpdates()
           }
         } else {
           Rectangle()

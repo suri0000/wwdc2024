@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IconDescriptionView<Destination:View>: View {
   
-  @ObservedObject var vm = IconDescriptionViewModel()
+  var praises: String
   var iconName: String
   var destination: Destination
   
@@ -24,7 +24,7 @@ struct IconDescriptionView<Destination:View>: View {
           .overlay {
             VStack {
               VStack(alignment: .leading) {
-                Text(vm.praises.randomElement() ?? "Good!")
+                Text(praises)
                   .font(.custom("KoddiUDOnGothic-Bold", size: 24))
                   .padding(EdgeInsets(top: 44, leading: 0, bottom: 20, trailing: 0))
                 
@@ -49,5 +49,5 @@ struct IconDescriptionView<Destination:View>: View {
 }
 
 #Preview {
-  IconDescriptionView(iconName: "", destination: ShareIconView())
+  IconDescriptionView(praises: "", iconName: "", destination: ShareIconView())
 }

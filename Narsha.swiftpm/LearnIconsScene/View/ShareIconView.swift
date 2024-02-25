@@ -17,9 +17,10 @@ struct ShareIconView: View {
   var body: some View {
     NavigationStack {
       VStack {
-        Text("Move the purple square in the direction of the arrow.")
-          .font(.custom("KoddiUDOnGothic-Regular", size: 24))
-          .padding(.top, 60)
+        Directive(directive: "Move the purple square in the direction of the arrow")
+//        Text("Move the purple square in the direction of the arrow.")
+//          .font(.custom("KoddiUDOnGothic-Regular", size: 24))
+//          .padding(.top, 60)
         Spacer()
         ZStack {
           Image(systemName: "square.and.arrow.up")
@@ -39,7 +40,7 @@ struct ShareIconView: View {
         
         if draggedOffset.height < -50 {
           NavigationLink {
-            IconDescriptionView(iconName: Description.share.rawValue, destination: FlashIconView())
+            IconDescriptionView(praises: "Fantastic!", iconName: Description.share.rawValue, destination: FlashIconView())
           } label: {
             NextButton()
           }

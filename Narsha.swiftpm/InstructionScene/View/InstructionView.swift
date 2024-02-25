@@ -25,7 +25,7 @@ struct InstructionView: View {
               VStack(alignment: .leading) {
                 Text(vm.titleText[pageNumber])
                   .font(.custom("KoddiUDOnGothic-Bold", size: 24))
-                  .minimumScaleFactor(0.9)
+                  .minimumScaleFactor(0.5)
                   .padding(.bottom, 25)
                   .padding(.top, 44)
                 
@@ -66,7 +66,7 @@ struct InstructionView: View {
         
         Image(systemName: "chevron.right")
       }
-      .padding(EdgeInsets(top: 6, leading: 15, bottom: 6, trailing: 15))
+      .padding(EdgeInsets(top: 6, leading: 13, bottom: 6, trailing: 13))
       .background(Color(hex: 0xFFF6C7))
       .cornerRadius(5)
       .foregroundColor(.black)
@@ -93,6 +93,7 @@ struct InstructionPageButton: View {
           
           Text(buttonName)
             .font(.custom("KoddiUDOnGothic-Bold", size: 20))
+            .minimumScaleFactor(0.1)
         } else {
           Text(buttonName)
             .font(.custom("KoddiUDOnGothic-Bold", size: 20))
@@ -104,7 +105,7 @@ struct InstructionPageButton: View {
       .background(Color(hex: 0xFFF6C7))
       .cornerRadius(5)
       .foregroundColor(.black)
-      .padding(.trailing, buttonName == "BACK" ? 48 : 0)
+      .padding(.trailing, buttonName == "BACK" ? 35 : 0)
     }
   }
 }
