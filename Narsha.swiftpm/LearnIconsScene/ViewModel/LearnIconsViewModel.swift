@@ -83,3 +83,29 @@ class MotionManager: ObservableObject {
     }
   }
 }
+
+/// 타이머
+class MyTimer: ObservableObject {
+  @Published var value: Int = 5
+  var timer: Timer?
+  
+  deinit {
+    timer?.invalidate()
+  }
+  
+  func start() {
+    timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {[weak self] timer in
+      
+      guard let self = self else {
+        timer.invalidate()
+        return
+      }
+      if self.value > 0 {
+        self.value -= 1
+      } else {
+        self.timer?.invalidate()
+        self.timer = nil
+      }
+    }
+  }
+}
