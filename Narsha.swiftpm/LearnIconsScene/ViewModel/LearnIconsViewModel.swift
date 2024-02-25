@@ -6,7 +6,9 @@
 //
 
 import SwiftUI
+import CoreMotion
 
+/// 커스텀 토글
 struct MyToggleStyle: ToggleStyle {
   private let width = 53.0
   
@@ -31,6 +33,53 @@ struct MyToggleStyle: ToggleStyle {
             }
           }
       }
+    }
+  }
+}
+
+/// 화면 회전
+class MotionManager: ObservableObject {
+  private var motionManager = CMMotionManager()
+  var timer: Timer
+  
+  @Published var pitch: Double = 0.0
+  @Published var roll: Double = 0.0
+  
+  init() {
+    self.timer = Timer()
+    startAccelerometers()
+  }
+  
+  deinit {
+    motionManager.stopDeviceMotionUpdates()
+    timer.invalidate()
+  }
+  
+  
+  func startAccelerometers() {
+    // Make sure the accelerometer hardware is available.
+    if self.motionManager.isAccelerometerAvailable {
+      self.motionManager.accelerometerUpdateInterval = 1.0 / 50.0  // 50 Hz
+      self.motionManager.startAccelerometerUpdates()
+      
+      
+      // Configure a timer to fetch the data.
+      self.timer = Timer(fire: Date(), interval: (1.0/50.0),
+                         repeats: true, block: { (timer) in
+        // Get the accelerometer data.
+        if let data = self.motionManager.accelerometerData {
+          let x = data.acceleration.x
+          let y = data.acceleration.y
+          
+          self.pitch = x
+          self.roll = y
+          // Use the accelerometer data in your app.
+        }
+      })
+      
+      
+      // Add the timer to the current run loop.
+      RunLoop.current.add(self.timer, forMode: .default)
     }
   }
 }
