@@ -8,6 +8,7 @@
 import Foundation
 import AVFoundation
 
+/// flashlight 켜고 끄기
 func toggleTorch(on: Bool) {
   guard let device = AVCaptureDevice.default(for: .video) else { return }
   if device.hasTorch {
