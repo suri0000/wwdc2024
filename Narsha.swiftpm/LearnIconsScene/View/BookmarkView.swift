@@ -85,7 +85,7 @@ struct BookmarkView: View {
           
           if onNextButton {
             NavigationLink {
-              IconDescriptionView(iconName: Description.bookmark.rawValue, destination: FlashIconView())
+              IconDescriptionView(praises: Praises.good.rawValue, iconName: Description.bookmark.rawValue, destination: MagnifyingGlassesView())
             } label: {
               NextButton()
             }

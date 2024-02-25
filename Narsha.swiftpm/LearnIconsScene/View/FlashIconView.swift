@@ -40,7 +40,7 @@ struct FlashIconView: View {
         
         if flashSwitch || toggleClick >= 1 {
           NavigationLink {
-            IconDescriptionView(iconName: Description.flash.rawValue, destination: BookmarkView())
+            IconDescriptionView(praises: "Great!", iconName: Description.flash.rawValue, destination: BookmarkView())
           } label: {
             NextButton()
           }

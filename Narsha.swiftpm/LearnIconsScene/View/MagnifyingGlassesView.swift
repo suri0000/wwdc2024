@@ -38,15 +38,19 @@ struct MagnifyingGlassesView: View {
             DragGesture()
               .updating($dragOffset) { value, state, _ in
                 state = value.translation
+                //showNextButton = true
+              }
+              .onChanged { value in
                 showNextButton = true
               }
               .onEnded { value in
                 magnifierPosition = CGPoint(x: magnifierPosition.x + value.translation.width, y: magnifierPosition.y + value.translation.height)
               }
           )
+        
         if showNextButton {
           NavigationLink {
-            IconDescriptionView(iconName: Description.magnifyingGlass.rawValue, destination: FontSizeView())
+            IconDescriptionView(praises: "Perfect!", iconName: Description.magnifyingGlass.rawValue, destination: FontSizeView())
           } label: {
             NextButton()
               .padding(.top, 67)

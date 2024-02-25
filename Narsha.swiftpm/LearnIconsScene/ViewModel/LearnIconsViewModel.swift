@@ -40,7 +40,7 @@ struct MyToggleStyle: ToggleStyle {
 /// 화면 회전
 class MotionManager: ObservableObject {
   private var motionManager = CMMotionManager()
-  var timer: Timer
+  var timer: Timer?
   
   @Published var pitch: Double = 0.0
   @Published var roll: Double = 0.0
@@ -52,7 +52,8 @@ class MotionManager: ObservableObject {
   
   deinit {
     motionManager.stopDeviceMotionUpdates()
-    timer.invalidate()
+    timer?.invalidate()
+    timer = nil
   }
   
   
@@ -77,16 +78,21 @@ class MotionManager: ObservableObject {
         }
       })
       
-      
       // Add the timer to the current run loop.
-      RunLoop.current.add(self.timer, forMode: .default)
+      RunLoop.current.add((self.timer)!, forMode: .default)
     }
+  }
+  
+  func stopUpdates() {
+      motionManager.stopDeviceMotionUpdates()
+      timer?.invalidate()
+      timer = nil
   }
 }
 
 /// 타이머
 class MyTimer: ObservableObject {
-  @Published var value: Int = 5
+  @Published var value: Int = 3
   var timer: Timer?
   
   deinit {

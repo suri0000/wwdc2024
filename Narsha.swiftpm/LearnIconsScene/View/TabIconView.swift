@@ -95,7 +95,7 @@ struct TabIconView: View {
           
           if isNextButtonVisible1 && isNextButtonVisible2 && isNextButtonVisible3 {
             NavigationLink {
-              IconDescriptionView(iconName: Description.tab.rawValue, destination: EndView())
+              IconDescriptionView(praises: "Nice!", iconName: Description.tab.rawValue, destination: EndView())
             } label: {
               NextButton()
                 .padding(.top, 30)

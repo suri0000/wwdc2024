@@ -39,7 +39,7 @@ struct HistoryView: View {
           
           if myTimer.value == 0 {
             NavigationLink {
-              IconDescriptionView(iconName: Description.clock.rawValue, destination: RefreshView())
+              IconDescriptionView(praises: "Cool!", iconName: Description.clock.rawValue, destination: RefreshView())
             } label: {
               NextButton()
             }

@@ -27,7 +27,7 @@ struct RefreshView: View {
           
           if rotated {
             NavigationLink {
-              IconDescriptionView(iconName: Description.refresh.rawValue, destination: TabIconView())
+              IconDescriptionView(praises: "Super!", iconName: Description.refresh.rawValue, destination: TabIconView())
             } label: {
               NextButton()
             }
