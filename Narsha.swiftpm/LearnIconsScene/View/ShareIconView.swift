@@ -67,6 +67,6 @@ extension CGSize {
   }
 }
 
-#Preview {
-  ShareIconView()
-}
+//#Preview {
+//  ShareIconView(path: .constant(false))
+//}

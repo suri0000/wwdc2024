@@ -66,6 +66,6 @@ struct MagnifyingGlassesView: View {
   }
 }
 
-#Preview {
-  MagnifyingGlassesView()
-}
+//#Preview {
+//  MagnifyingGlassesView(path: .constant(false))
+//}

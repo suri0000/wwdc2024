@@ -38,6 +38,6 @@ struct FontSizeView: View {
     }
 }
 
-#Preview {
-  FontSizeView()
-}
+//#Preview {
+//  FontSizeView(path: .constant(false))
+//}

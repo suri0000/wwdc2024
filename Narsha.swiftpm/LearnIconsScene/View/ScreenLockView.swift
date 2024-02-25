@@ -67,6 +67,6 @@ struct ScreenLockView: View {
   }
 }
 
-#Preview {
-  ScreenLockView()
-}
+//#Preview {
+//  ScreenLockView(path: .constant(false))
+//}

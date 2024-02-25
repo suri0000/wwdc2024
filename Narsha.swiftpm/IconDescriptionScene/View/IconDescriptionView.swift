@@ -48,6 +48,6 @@ struct IconDescriptionView<Destination:View>: View {
   }
 }
 
-#Preview {
-  IconDescriptionView(praises: "", iconName: "", destination: ShareIconView())
-}
+//#Preview {
+//  IconDescriptionView(praises: "", iconName: "", destination: ShareIconView(path: .constant(false)), path: .constant(false))
+//}

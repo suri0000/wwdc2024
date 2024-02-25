@@ -23,6 +23,7 @@ struct MainView: View {
           MainButton(buttonName: "Learn icons")
         }
       }
+      .navigationBarHidden(true)
     }
   }
 }
