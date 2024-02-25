@@ -56,6 +56,6 @@ struct FlashIconView: View {
   }
 }
 
-#Preview {
-  FlashIconView()
-}
+//#Preview {
+//  FlashIconView(path: .constant(false))
+//}

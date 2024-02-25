@@ -106,7 +106,7 @@ struct TabIconView: View {
       }
     }
 
-
-#Preview {
-  TabIconView()
-}
+//
+//#Preview {
+//  TabIconView(path: .constant(false))
+//}

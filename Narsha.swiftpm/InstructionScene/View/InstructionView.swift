@@ -110,6 +110,6 @@ struct InstructionPageButton: View {
   }
 }
 
-#Preview {
-  InstructionView()
-}
+//#Preview {
+//  InstructionView(path: .constant(false))
+//}

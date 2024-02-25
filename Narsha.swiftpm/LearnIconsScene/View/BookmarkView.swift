@@ -95,6 +95,6 @@ struct BookmarkView: View {
     }
 }
 
-#Preview {
-    BookmarkView()
-}
+//#Preview {
+//  BookmarkView(path: .constant(false))
+//}

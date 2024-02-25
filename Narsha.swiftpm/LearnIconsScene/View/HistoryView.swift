@@ -49,6 +49,6 @@ struct HistoryView: View {
     }
 }
 
-#Preview {
-    HistoryView()
-}
+//#Preview {
+//  HistoryView(path: .constant(false))
+//}

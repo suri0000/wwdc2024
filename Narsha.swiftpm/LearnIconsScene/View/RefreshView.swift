@@ -46,6 +46,6 @@ struct RefreshView: View {
   }
 }
 
-#Preview {
-    RefreshView()
-}
+//#Preview {
+//  RefreshView(path: .constant(false))
+//}
